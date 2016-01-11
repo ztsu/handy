@@ -2,10 +2,7 @@ var path = require("path");
 var webpack = require("webpack");
 
 module.exports = {
-  devtool: "#inline-source-map",
   entry: [
-    "webpack-dev-server/client?http://localhost:3000",
-    "webpack/hot/only-dev-server",
     "./src/index.js"
   ],
   output: {
@@ -19,7 +16,7 @@ module.exports = {
   ],
   module: {
     loaders: [
-      {test: /\.jsx?$/, include: path.join(__dirname, "src/"), loaders: ["react-hot", "babel-loader"]},
+      {test: /\.jsx?$/, include: path.join(__dirname, "src/"), loaders: ["babel-loader"]},
       {test: /\.css$/, loader: "style!css"}
     ]
   }
