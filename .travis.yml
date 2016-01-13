@@ -1,9 +1,6 @@
-langiage: node_js
+language: node_js
 node_js:
-  - "0.12"
-
-install:
-  - npm install
+  - "4"
 
 before_script:
   - npm run lint
