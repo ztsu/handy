@@ -1,9 +1,15 @@
 language: node_js
+
 node_js:
-  - "4"
+  - "4.0"
 
 before_script:
   - npm run lint
-
-script:
   - npm run build
+
+script: ./deploy.sh
+
+env:
+  global:
+    - secure: "f5OpOFbj35XQLiYGwCT0IwLT+vhJbsNQ9iwNXapSwfs0xjHYLRRWGL3V1UEUga+UIUTz1Ubshesby7MdDR+wUShgvJrfUbGFgUHjsIe/qXGhNTRielMAEwzZjGkcSMNbT+pfiGNEry3BlFOkNNluO7WNSXGKyo2SBCs0j7p81Rxr5kDyXzjIv5iKygOEMHhZC0DzaMYgzcnaMGoEZlVsB3IjErDD1pnoQa0Wk5rjKmGbC46X/6klde4aJXq1G2Zcqhhmh2HjkxJtaqYT17YzRCTZytzj5mprgyARocYvjtrKdEGredIC6Y18Z7fo9UYxsraj36x4PHbFgKZt+qQW7x7gQpkwgVJxIusonSGoDkym4VWMrZ8BpEkWsVS76diCFT8Lf9GlhTVT5evneryZhrFHB5PMcPoLJIVHXO+6PMAKrqYfF5H90oPr+NTtBt1BTIwo/NHBhdkh1en8FFWCA/JHj8DKJvZQtsDeH9mLatmEWxMgrtdcQc5lbu9i3uiSPulL93hg1nGYIahqiNkg87plGrRBiyTcQwD8lu/oFSaJ9vO9CqqY0l4tnLzKU/CVetpaEN/2zdrIhPS4bqM0/w/8BqOUxDOujDsfLDBm9jqZioujn5TCyS6cSZt0TKD9IIqaAQYTSt4E2pIegIxHVoSESmISP6fvoPlHmnUJGPA="
+    - GITHUB_REP="github.com/handy-co/handy-co.github.io.git"
