@@ -7,8 +7,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, "dist/"),
-    filename: "bundle.js",
-    publicPath: "/static"
+    filename: "handy.js"
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
