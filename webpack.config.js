@@ -1,5 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: [
@@ -11,7 +12,8 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({__DEV__: process.env.NODE_ENV === "production" ? "false" : "true"})
+    new webpack.DefinePlugin({__DEV__: process.env.NODE_ENV === "production" ? "false" : "true"}),
+    new HtmlWebpackPlugin({__BUILD__: process.env.TRAVIS_BUILD_NUMBER, template: "index.html"})
   ],
   module: {
     loaders: [

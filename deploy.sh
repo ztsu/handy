@@ -3,7 +3,6 @@
 set -e
 
 cd dist/
-cp ../index.html ./
 
 git init
 git config user.name "Alexey Golovnya"
