@@ -2,7 +2,8 @@ const words = [
   ["cosy", "[ˈkəʊzɪ]", "уютный"],
   ["throughout", "[θruːˈaʊt]", "через, везде"],
   ["consecutive", "[kənˈsɛkjʊtɪv]", "последовательный"],
-  ["sequential", "[sɪˈkwɛnʃ(ə)l]", "следующий"]
+  ["sequential", "[sɪˈkwɛnʃ(ə)l]", "следующий"],
+  ["insist", "[ɪnˈsɪst]", "настаивать"]
 ];
 
 const PREV = "prev";
