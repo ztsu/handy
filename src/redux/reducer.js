@@ -5,9 +5,8 @@ const words = [
   ["sequential", "[sɪˈkwɛnʃ(ə)l]", "следующий"],
   ["insist", "[ɪnˈsɪst]", "настаивать"],
   ["convenient", "[kənˈviːnɪənt]", "удобный"],
-  ["suitable", "[ˈs(j)uːtəb(ə)l]", "подходящий"]
-
-
+  ["suitable", "[ˈs(j)uːtəb(ə)l]", "подходящий"],
+  ["predecessor", "[ˈpriːdɪsɛsə]", "предшественник"]
 ];
 
 const PREV = "prev";
