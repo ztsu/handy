@@ -1,7 +1,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import DevTools from "./DevTools.jsx";
-import Word from "./Word.jsx";
+import Handy from "./Handy.jsx";
 
 export default class App extends React.Component {
   render() {
@@ -10,7 +10,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <div>
-          <Word />
+          <Handy />
           <DevTools />
         </div>
       </Provider>

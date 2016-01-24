@@ -3,15 +3,11 @@ import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import { HotKeys } from "react-hotkeys";
 import { next, prev } from "../redux/reducer.js";
+import Word from "../components/Word.jsx"
 
-class Hello extends React.Component {
+class Handy extends React.Component {
 
   componentDidMount() {
-    ReactDOM.findDOMNode(this).focus();
-  }
-
-  handleMouseEnter(event) {
-    //console.log(event, );
     ReactDOM.findDOMNode(this).focus();
   }
 
@@ -32,15 +28,11 @@ class Hello extends React.Component {
     return (
       <HotKeys keyMap={keyMap} handlers={handlers}>
         <div className="cosy-layout">
-          <ul className="cosy-word" onMouseEnter={e => this.handleMouseEnter(e)}>
-            <li className="cosy-word-item _apa">{word[1]}</li>
-            <li className="cosy-word-item _word">{word[0]}</li>
-            <li className="cosy-word-item _tr">{word[2]}</li>
-          </ul>
+          <Word word={word} />
         </div>
       </HotKeys>
     );
   }
 }
 
-export default connect(state => state)(Hello);
+export default connect(state => state)(Handy);
