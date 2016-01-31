@@ -12,8 +12,7 @@ class Handy extends React.Component {
   }
 
   render() {
-    const { dispatch } = this.props;
-    const word = this.props.words[this.props.current];
+    const { dispatch, words, current } = this.props;
 
     const keyMap = {
       "left": ["left", "h"],
@@ -28,7 +27,7 @@ class Handy extends React.Component {
     return (
       <HotKeys keyMap={keyMap} handlers={handlers}>
         <div className="cosy-layout">
-          <Word word={word} />
+          {words.slice(current, current + 1).map(word => <Word key={word[0]} word={word} />)}
         </div>
       </HotKeys>
     );
