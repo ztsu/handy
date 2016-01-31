@@ -4,6 +4,8 @@ set -e
 
 cd dist/
 
+cp ../words.json ./
+
 git init
 git config user.name "Alexey Golovnya"
 git config user.email "alexey.golovnya@gmail.com"
