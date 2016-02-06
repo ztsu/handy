@@ -12,7 +12,7 @@ body {
     height: 100%;
 }
 
-.cosy-layout {
+.handy-layout {
     top: 0;
     bottom: 0;
     left: 0;
@@ -22,7 +22,7 @@ body {
     min-width: 640px;
 }
 
-.cosy-word {
+.handy-word {
     list-style-type: none;
     margin: -100px 0 0 -320px;
     padding: 0;
@@ -33,13 +33,13 @@ body {
     left: 50%;
 }
 
-.cosy-word-item {
+.handy-word-item {
     height: 50px;
     line-height: 50px;
     font-size: 1.25em;
 }
 
-.cosy-word-item._word {
+.handy-word-item._word {
     font-size: 3em;
     height: 75px;
     line-height: 75px;
