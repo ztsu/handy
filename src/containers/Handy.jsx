@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { HotKeys } from "react-hotkeys";
 import { next, prev } from "../redux/reducer.js";
 import Word from "../components/Word.jsx"
+import Counter from "../components/Counter.jsx"
 
 class Handy extends React.Component {
 
@@ -28,6 +29,7 @@ class Handy extends React.Component {
       <HotKeys keyMap={keyMap} handlers={handlers}>
         <div className="cosy-layout">
           {words.slice(current, current + 1).map(word => <Word key={word[0]} word={word} />)}
+          <Counter current={current + 1} total={words.length} />
         </div>
       </HotKeys>
     );
