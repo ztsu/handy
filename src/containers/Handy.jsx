@@ -28,7 +28,7 @@ class Handy extends React.Component {
     return (
       <HotKeys keyMap={keyMap} handlers={handlers}>
         <div className="handy-layout">
-          {words.slice(current, current + 1).map(word => <Word key={word[0]} word={word} />)}
+          {words.slice(current, current + 1).map(word => <Word key={word} word={word} />)}
           <Counter current={current + 1} total={words.length} />
         </div>
       </HotKeys>

@@ -11,9 +11,9 @@ export default class Word extends React.Component {
 
     return (
       <ul className="handy-word" onMouseEnter={e => this.handleMouseEnter()}>
-        <li className="handy-word-item _apa">{word[1]}</li>
-        <li className="handy-word-item _word">{word[0]}</li>
-        <li className="handy-word-item _tr">{word[2]}</li>
+        <li className="handy-word-item _ipa">{word.ipa}</li>
+        <li className="handy-word-item _word">{word.word}</li>
+        <li className="handy-word-item _tr">{word.translations[0]}</li>
       </ul>
     );
   }
