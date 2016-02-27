@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import { HotKeys } from "react-hotkeys";
-import { next, prev } from "../redux/reducer.js";
+import { next, prev, open } from "../redux/reducer.js";
 import Word from "../components/Word.jsx"
 import Counter from "../components/Counter.jsx"
 
@@ -17,18 +17,20 @@ class Handy extends React.Component {
 
     const keyMap = {
       "left": ["left", "h"],
-      "right": ["right", "l"]
+      "right": ["right", "l"],
+      "open": ["enter", "o"]
     };
 
     const handlers = {
       "left": (event) => dispatch(prev()),
-      "right": (event) => dispatch(next())
+      "right": (event) => dispatch(next()),
+      "open": (event) => dispatch(open())
     };
 
     return (
       <HotKeys keyMap={keyMap} handlers={handlers}>
         <div className="handy-layout">
-          {words.slice(current, current + 1).map(word => <Word key={word} word={word} />)}
+          {words.slice(current, current + 1).map(word => <Word key={word} {...word} />)}
           <Counter current={current + 1} total={words.length} />
         </div>
       </HotKeys>

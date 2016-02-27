@@ -45,6 +45,10 @@ body {
     line-height: 75px;
 }
 
+.handy-word-item._hidden {
+    visibility: hidden;
+}
+
 .handy-counter {
     position: absolute;
     bottom: 100px;

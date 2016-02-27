@@ -21,7 +21,8 @@ function get(url) {
 
 const PREV = "prev";
 const NEXT = "next";
-const LOAD= "load";
+const LOAD = "load";
+const OPEN = "open";
 
 export default function main(state = {words: [], current: 0}, action) {
   const { words, current } = state;
@@ -33,6 +34,11 @@ export default function main(state = {words: [], current: 0}, action) {
       return {...state, current: current + 1 < words.length && current + 1 || words.length - 1};
     case PREV:
       return {...state, current: current > 0 && current - 1 || 0};
+    case OPEN:
+      return {
+        ...state,
+        words: words.map((word, n) => { if (current === n) { word.open = true; }; return word; })
+      };
     default:
       return state;
   }
@@ -54,4 +60,8 @@ export function next() {
 
 export function prev() {
   return {type: PREV};
+}
+
+export function open() {
+  return {type: OPEN};
 }
