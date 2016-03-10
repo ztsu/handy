@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Tappable from "react-tappable";
+import Swipeable from "react-hammerjs";
 
 
 export default class Word extends React.Component {
@@ -9,16 +9,16 @@ export default class Word extends React.Component {
   }
 
   render() {
-    const { word, ipa, translations, open, onTap } = this.props;
+    const { word, ipa, translations, open, onTap, onSwipeLeft, onSwipeRight } = this.props;
 
     return (
-      <Tappable onTap={onTap}>
+      <Swipeable onTap={onTap} onSwipe={event => event.velocityX < 0 ? onSwipeLeft() : onSwipeRight()}>
         <ul className="handy-word" onMouseEnter={e => this.handleMouseEnter()}>
           <li className={["handy-word-item", "_ipa", open ? "" : "_hidden"].join(" ")}>{ipa}</li>
           <li className={["handy-word-item", "_word"].join(" ")}>{word}</li>
           <li className={["handy-word-item", "_tr", open ? "" : "_hidden"].join(" ")}>{translations[0]}</li>
         </ul>
-      </Tappable>
+      </Swipeable>
     );
   }
 }

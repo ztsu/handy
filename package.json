@@ -16,9 +16,9 @@
   "dependencies": {
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "react-hammerjs": "^0.4.5",
     "react-hotkeys": "^0.7.1",
     "react-redux": "^4.0.0",
-    "react-tappable": "^0.8.0",
     "redux": "^3.0.4",
     "redux-thunk": "^1.0.0"
   },
