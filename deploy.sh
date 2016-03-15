@@ -5,6 +5,7 @@ set -e
 cd dist/
 
 cp ../words.json ./
+cp ../handy-120x120.png ./
 
 git init
 git config user.name "Alexey Golovnya"
