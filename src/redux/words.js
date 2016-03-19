@@ -1,3 +1,4 @@
+import { increment, decrement } from "./loading";
 function get(url) {
   let xhr = new XMLHttpRequest();
 
@@ -42,7 +43,13 @@ function receiveWords(words) {
 
 export function load() {
   return dispatch => {
-    return get("/words.json").then(words => dispatch(receiveWords(words.map(word => { return {word: word[0], ipa: word[1], translations: [word[2]], open: false}; }))));
+    dispatch(increment());
+
+    return get("/words.json")
+      .then(words => dispatch(
+        receiveWords(words.map(word => ({word: word[0], ipa: word[1], translations: [word[2]], open: false})))
+      ))
+      .then(() => dispatch(decrement()));
   }
 }
 
