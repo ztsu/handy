@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import reducer from "./reducer";
+import reducers from "./index";
 
-export default function configure() {
-  return compose(applyMiddleware(thunk))(createStore)(reducer);
+export default function() {
+  return compose(applyMiddleware(thunk))(createStore)(reducers);
 }

@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import { HotKeys } from "react-hotkeys";
-import { next, prev, open } from "../redux/reducer.js";
+import { open } from "../redux/words";
+import { next, prev } from "../redux/current";
 import Word from "../components/Word.jsx"
 import Counter from "../components/Counter.jsx"
 
@@ -22,16 +23,22 @@ class Handy extends React.Component {
     };
 
     const handlers = {
-      "left": (event) => dispatch(prev()),
-      "right": (event) => dispatch(next()),
-      "open": (event) => dispatch(open())
+      "left": () => current > 0 && dispatch(prev()),
+      "right": () => current < words.length - 1 && dispatch(next()),
+      "open": () => dispatch(open(current))
+    };
+
+    const touchHandlers = {
+      "onTap": () => dispatch(open()),
+      "onSwipeLeft": () => dispatch(prev()),
+      "onSwipeRight": () => dispatch(next())
     };
 
     return (
       <HotKeys keyMap={keyMap} handlers={handlers}>
         <div className="handy-layout">
-          {words.slice(current, current + 1).map(word => <Word key={word} {...word} onTap={() => dispatch(open())} onSwipeLeft={() => dispatch(prev())} onSwipeRight={() => dispatch(next())}/>)}
-          <Counter current={current + 1} total={words.length} />
+          {words.slice(current, current + 1).map(word => <Word key={word} {...word} {...touchHandlers}/>)}
+          <Counter current={current + 1} total={words.length}/>
         </div>
       </HotKeys>
     );

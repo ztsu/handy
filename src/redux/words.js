@@ -19,26 +19,18 @@ function get(url) {
   });
 }
 
-const PREV = "prev";
-const NEXT = "next";
-const LOAD = "load";
-const OPEN = "open";
+const LOAD = "words/load";
+const OPEN = "words/open";
 
-export default function main(state = {words: [], current: 0}, action) {
-  const { words, current } = state;
+export default function main(state = [], action) {
 
   switch (action.type) {
     case LOAD:
-      return {...state, words: action.words};
-    case NEXT:
-      return {...state, current: current + 1 < words.length && current + 1 || words.length - 1};
-    case PREV:
-      return {...state, current: current > 0 && current - 1 || 0};
+      return action.words;
+
     case OPEN:
-      return {
-        ...state,
-        words: words.map((word, n) => { if (current === n) { word.open = true; }; return word; })
-      };
+      return state.map((word, n) => ({...word, open: n === action.current || word.open}));
+
     default:
       return state;
   }
@@ -54,14 +46,6 @@ export function load() {
   }
 }
 
-export function next() {
-  return {type: NEXT};
-}
-
-export function prev() {
-  return {type: PREV};
-}
-
-export function open() {
-  return {type: OPEN};
+export function open(current) {
+  return {type: OPEN, current};
 }

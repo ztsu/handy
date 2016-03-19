@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Swipeable from "react-hammerjs";
 
-
 export default class Word extends React.Component {
   handleMouseEnter() {
     ReactDOM.findDOMNode(this).focus();
