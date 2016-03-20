@@ -29,9 +29,9 @@ class Handy extends React.Component {
     };
 
     const touchHandlers = {
+      "onSwipeLeft": () => current > 0 && dispatch(prev()),
+      "onSwipeRight": () => current < words.length - 1 && dispatch(next()),
       "onTap": () => dispatch(open(current)),
-      "onSwipeLeft": () => dispatch(prev()),
-      "onSwipeRight": () => dispatch(next())
     };
 
     return (
