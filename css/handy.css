@@ -59,3 +59,15 @@ body {
     color: #777;
     font-size: 14px;
 }
+
+.handy-loading {
+    background: rgba(256, 256, 256, 0.98) url("./spinner.gif") center no-repeat;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 2;
+}

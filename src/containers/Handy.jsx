@@ -6,6 +6,7 @@ import { open } from "../redux/words";
 import { next, prev } from "../redux/current";
 import Word from "../components/Word.jsx"
 import Counter from "../components/Counter.jsx"
+import LoadingIndicator from "../components/Loading"
 
 class Handy extends React.Component {
 
@@ -14,7 +15,7 @@ class Handy extends React.Component {
   }
 
   render() {
-    const { dispatch, words, current } = this.props;
+    const { dispatch, loading, words, current } = this.props;
 
     const keyMap = {
       "left": ["left", "h"],
@@ -36,6 +37,7 @@ class Handy extends React.Component {
 
     return (
       <HotKeys keyMap={keyMap} handlers={handlers}>
+        {loading > 0 && <LoadingIndicator/>}
         <div className="handy-layout">
           {words.slice(current, current + 1).map(word => <Word key={word} {...word} {...touchHandlers}/>)}
           <Counter current={current + 1} total={words.length}/>
